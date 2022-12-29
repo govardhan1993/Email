@@ -16,17 +16,17 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EmailService {
-	public boolean sendEmail(String subject, String msg, String to) throws MessagingException
+	public boolean sendEmail(String sunbject, String msg, String to) throws MessagingException
 	{
 		boolean f=false;
-		String from="jadhav.govardhan11@gmail.com";
+		String from="newpan20222607@gmail.com";
 		String host="smtp.gmail.com";
 		
 		Properties properties=System.getProperties();
 		
 		System.out.println("Properties"+properties);
 		
-		properties.put("mail.smtp.host",host);
+		properties.put("mail.smtp.host","smtp.gmail.com");
 		properties.put("mail.smtp.port","465");
 		properties.put("mail.smtp.ssl.enable","true");
 		properties.put("mail.smtp.auth","true");
@@ -36,7 +36,7 @@ public class EmailService {
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
 				
-				return new PasswordAuthentication("jadhav.govardhan11@gmail.com","Govdhan@1993");
+				return new PasswordAuthentication("newpan20222607@gmail.com","Govardhan@1993");
 			}
 			
 		
@@ -44,9 +44,10 @@ public class EmailService {
 		session.setDebug(true);
 		MimeMessage mimeMessage=new MimeMessage(session);
 		mimeMessage.setFrom(from);
-		mimeMessage.addRecipient(Message.RecipientType.TO,new InternetAddress(to));
-		mimeMessage.setSubject(subject);
+		mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 		mimeMessage.setText(msg);
+		mimeMessage.setSubject(sunbject);
+		
 		Transport.send(mimeMessage);
 		System.out.println("msg has been send Sucessfully");
 		f=true;

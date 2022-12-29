@@ -39,7 +39,7 @@ public class EmailController {
 			return ResponseEntity.ok("Email Send Sucess");
 		}else
 		{
-			return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body("Email not Send");
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Email not Send");
 		}
 		
 	}

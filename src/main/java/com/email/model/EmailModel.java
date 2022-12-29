@@ -1,5 +1,6 @@
 package com.email.model;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 public class EmailModel {
 
